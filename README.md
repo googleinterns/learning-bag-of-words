@@ -1,7 +1,7 @@
 This repo stores the official code for the paper
 
 ```
-@inproceedings{NEURIPS2019_00989c20,
+@inproceedings{dang2021revealing,
  author = {Dang, Trung and Thakkar, Om and Ramaswamy, Swaroop and Mathews, Rajiv and Chin, Peter and Beaufays, Françoise},
  booktitle = {Advances in Neural Information Processing Systems},
  title = {Revealing and Protecting Labels in Distributed Training},
