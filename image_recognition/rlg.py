@@ -52,7 +52,7 @@ def infer_labels(A, gt_k=None, epsilon=1e-8, method='perceptron'):
     C = C[:k, :].astype(np.double)
 
     # Find x: x @ C has only one positive element
-    # Filter using perceptron algorithm
+    # Filter possible labels using perceptron algorithm
     bow = []
     if args.model == "ResNet50":
         bow = np.reshape(np.where(np.min(A, 0) < 0), -1).tolist()
@@ -71,7 +71,6 @@ def infer_labels(A, gt_k=None, epsilon=1e-8, method='perceptron'):
             bow.append(i)
   
     # Get the final set with linear programming
-    # ret_bow = np.reshape(np.where(np.min(A, 0) < 0), -1).tolist()
     ret_bow = []
     for i in bow:
         if i in ret_bow:

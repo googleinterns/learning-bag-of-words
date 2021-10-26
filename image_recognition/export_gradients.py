@@ -59,12 +59,6 @@ for i in tqdm(range(args.num_batches), desc="Exporting gradients"):
         preds = model(image_batch)
         loss = model.loss(preds, tf.one_hot(label_batch, num_classes))
         grads = tape.gradient(loss, model.get_layer("predictions").trainable_variables[0])
-    # print("Batch no. %d" % i)
-    # print("Loss:", loss.numpy())
-    # print("Grad Norm:", tf.linalg.norm(grads))
     
-    # print("Ground-truth Labels:", label_batch.numpy().flatten().tolist())
-    # preds = model.predict(image_batch)
-    # print("Predicted Labels:", tf.argmax(preds, -1).numpy().flatten().tolist())
     np.save(grad_path, grads.numpy())
     np.save(label_path, label_batch.numpy())
