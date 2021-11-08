@@ -51,7 +51,7 @@ python ../scripts/infer_bow.py --uttid=$LINGVO_RECONSTRUCTION_UTTID --tag=$LINGV
 ../bazel-bin/lingvo/trainer $REC_PARAMS --use_bow
 ```
 
-List of utt ids used for our experiments is stored in `speech_recognition/lingvo/lingvo/data`.
+List of utt ids used for our experiments is stored in `speech_recognition/data`.
 
 If you use this code in your research, please cite our paper:
 
