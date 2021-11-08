@@ -36,8 +36,6 @@ export LINGVO_RECONSTRUCTION_UTTID=<librispeech_utt_id>
 export LINGVO_RECONSTRUCTION_TAG=wpm-rand-bow
 export OUTPUT_DIR=/home/trungvd/lingvo-outputs/$LINGVO_RECONSTRUCTION_TAG/$LINGVO_RECONSTRUCTION_UTTID
 
-rm -r $OUTPUT_DIR/train
-
 export REC_PARAMS="--model=asr.librispeech.Librispeech960Wpm \
   --checkpoint_path <path_to_a_Librispeech960Wpm_checkpoint> \
   --model_tag $LINGVO_RECONSTRUCTION_TAG \
@@ -53,14 +51,13 @@ export REC_PARAMS="--model=asr.librispeech.Librispeech960Wpm \
   --reconstructed_input atten_context \
   --target_unit word"
 
-echo "Started $(date)" >> $HISTORY_PATH
-
+# Export gradients
 ../bazel-bin/lingvo/trainer $REC_PARAMS --export_gradient
-echo "Gradient exported"
 
-echo "Inferring bag of words..."
+# Infer bag of words
 python ../scripts/infer_bow.py --uttid=$LINGVO_RECONSTRUCTION_UTTID --tag=$LINGVO_RECONSTRUCTION_TAG --target_unit $LINGVO_REC_UNIT
 
+# Transcript reconstruction with BoW
 ../bazel-bin/lingvo/trainer $REC_PARAMS --use_bow
 ```
 
