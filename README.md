@@ -1,14 +1,4 @@
-This repo stores the official code for the paper
-
-```
-@inproceedings{dang2021revealing,
- author = {Dang, Trung and Thakkar, Om and Ramaswamy, Swaroop and Mathews, Rajiv and Chin, Peter and Beaufays, Françoise},
- booktitle = {Advances in Neural Information Processing Systems},
- title = {Revealing and Protecting Labels in Distributed Training},
- url = {},
- year = {2021}
-}
-```
+This repo stores the official code for our paper: Revealing and Protecting Labels in Distributed Training ([arxiv](https://arxiv.org/abs/2111.00556))
 
 # Instructions
 
@@ -61,4 +51,16 @@ python ../scripts/infer_bow.py --uttid=$LINGVO_RECONSTRUCTION_UTTID --tag=$LINGV
 ../bazel-bin/lingvo/trainer $REC_PARAMS --use_bow
 ```
 
-List of utt ids used for our experiments is stored in `speech_recognition/lingvo/lingvo/data`
+List of utt ids used for our experiments is stored in `speech_recognition/lingvo/lingvo/data`.
+
+If you use this code in your research, please cite our paper:
+
+```
+@inproceedings{dang2021revealing,
+ author = {Dang, Trung and Thakkar, Om and Ramaswamy, Swaroop and Mathews, Rajiv and Chin, Peter and Beaufays, Françoise},
+ booktitle = {Advances in Neural Information Processing Systems},
+ title = {Revealing and Protecting Labels in Distributed Training},
+ url = {},
+ year = {2021}
+}
+```
